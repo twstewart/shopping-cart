@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "Brown Cowboy Hat",
+    "category": "Hats",
+    "priceCents": 1600,
+    "imageColor": "https://i.ibb.co/QdJwgmp/brown-cowboy.png"
+  },
+  {
+    "id": 2,
+    "name": "Camo Down Vest",
+    "category": "Vests",
+    "priceCents": 2100,
+    "imageColor": "https://i.ibb.co/xJS0T3Y/camo-vest.png"
+  },
+  {
+    "id": 3,
+    "name": "Polka Dot Shirt",
+    "category": "Shirts",
+    "priceCents": 1200,
+    "imageColor": "https://i.ibb.co/mh3VM1f/polka-dot-shirt.png"
+  },
+  {
+    "id": 4,
+    "name": "Yellow Track suit",
+    "category": "Sweaters",
+    "priceCents": 1800,
+    "imageColor": "https://i.ibb.co/v1cvwNf/yellow-track-suit.png"
+  },
+  {
+    "id": 5,
+    "name": "Adidas Yeezy",
+    "category": "Sneakers",
+    "priceCents": 1600,
+    "imageColor": "https://i.ibb.co/dJbG1cT/yeezy.png"
+  },
+  {
+    "id": 6,
+    "name": "Black Converse",
+    "category": "Sneakers",
+    "priceCents": 2100,
+    "imageColor": "https://i.ibb.co/bPmVXyP/black-converse.png"
+  },
+  {
+    "id": 7,
+    "name": "Brown Shearling Jacket",
+    "category": "Jackets",
+    "priceCents": 1200,
+    "imageColor": "https://i.ibb.co/s96FpdP/brown-shearling.png"
+  },
+  {
+    "id": 8,
+    "name": "Brown Trench Coat",
+    "category": "Coats",
+    "priceCents": 1600,
+    "imageColor": "https://i.ibb.co/M6hHc3F/brown-trench.png"
+  }
+]
