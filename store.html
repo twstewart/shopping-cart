@@ -18,23 +18,28 @@
       </div>
     </header>
     <section class="text-gray-700 body-font">
-      <div class="container px-5 py-24 mx-auto">
-        <div class="flex flex-wrap -m-4">
-          <template class="lg:w-1/4 md:w-1/2 p-4 w-full">
-            <div class="block relative h-48 rounded overflow-hidden">
-              <img
-                alt="ecommerce"
-                class="object-cover object-center w-full h-full block"
-                src="https://dummyimage.com/420x260/333/333"
-              />
-            </div>
-            <div class="mt-4 flex items-end justify-between">
-              <div>
-                <h3 class="text-gray-500 text-xs tracking-widest title-font uppercase mb-1">Item Category</h3>
-                <h2 class="text-gray-900 title-font text-lg font-medium">Item name</h2>
-                <p class="mt-1">Price</p>
+      <div class="container px-5 py-16 mx-auto">
+        <div id="store-wrapper" class="grid gap-x-14 gap-y-20 md:grid-cols-2 lg:grid-cols-4">
+          <template id="store-item-template">
+            <div data-store-item class="border-2 rounded-md overflow-hidden">
+              <div class="block relative h-60">
+                <img data-store-item-image alt="outfit" class="object-cover object-center w-full h-full block" />
               </div>
-              <button class="text-white py-2 px-4 text-xl bg-blue-500 rounded hover:bg-blue-700">Add To Cart</button>
+              <div class="px-2 pb-4">
+                <h3
+                  data-store-item-category
+                  class="text-gray-500 text-xs tracking-widest title-font uppercase mt-4"
+                ></h3>
+                <div class="flex justify-between items-center">
+                  <h2 data-store-item-name class="text-gray-900 title-font text-lg font-medium"></h2>
+                  <p data-store-item-price class="mt-1"></p>
+                </div>
+                <div class="mt-4 text-center">
+                  <button class="w-1/2 text-white py-2 px-4 text-base bg-blue-500 rounded hover:bg-blue-700">
+                    Add to cart
+                  </button>
+                </div>
+              </div>
             </div>
           </template>
         </div>
@@ -107,11 +112,12 @@
           />
         </svg>
         <div
-          class="bg-red-500 rounded-full text-xs absolute w-6 h-6 flex justify-center items-center right-0 bottom-0 transform translate-x-2 translate-y-2 hidden"
+          class="bg-red-500 rounded-full text-xs absolute w-6 h-6 flex justify-center items-center right-0 bottom-0 transform translate-x-2 translate-y-2 invisible"
         >
           2
         </div>
       </button>
     </section>
+    <script type="module" src="main.js"></script>
   </body>
 </html>
