@@ -35,7 +35,10 @@
                   <p data-store-item-price class="mt-1"></p>
                 </div>
                 <div class="mt-4 text-center">
-                  <button class="w-1/2 text-white py-2 px-4 text-base bg-blue-500 rounded hover:bg-blue-700">
+                  <button
+                    data-add-to-cart
+                    class="w-1/2 text-white py-2 px-4 text-base bg-blue-500 rounded hover:bg-blue-700"
+                  >
                     Add to cart
                   </button>
                 </div>
@@ -46,63 +49,47 @@
       </div>
     </section>
     <section>
-      <div class="mb-4 top-0 right-0 mr-4 mt-20 fixed">
+      <div data-cart-items-wrapper class="mb-4 top-0 right-0 mr-4 mt-20 fixed invisible">
         <div
           style="max-height: calc(100vh - 6rem)"
-          class="bg-white text-gray-700 body-font shadow-lg border rounded-lg flex flex-col hidden"
+          class="bg-white text-gray-700 body-font shadow-lg border rounded-lg flex flex-col"
         >
-          <div class="overflow-y-auto px-4 pt-4">
-            <div class="mb-6">
-              <div class="block relative h-24 rounded overflow-hidden">
-                <img
-                  alt="ecommerce"
-                  class="object-cover object-center w-full h-full block rounded"
-                  src="https://dummyimage.com/210x130/F00/F00"
-                />
-                <button
-                  data-remove-from-cart-button
-                  class="absolute top-0 right-0 bg-black rounded-tr text-white w-6 h-6 text-lg flex justify-center items-center"
-                >
-                  &times;
-                </button>
-              </div>
-              <div class="mt-2 flex justify-between">
-                <div class="flex items-center title-font">
-                  <h2 class="text-gray-900 text-lg font-medium">Red</h2>
-                  <span class="text-gray-600 text-sm font-bold ml-1">x2</span>
+          <div data-cart-items class="overflow-y-auto px-4 pt-4 w-52">
+            <template id="cart-item-template">
+              <div data-cart-item class="mb-6">
+                <div class="block relative h-24 rounded overflow-hidden">
+                  <img
+                    data-cart-item-image
+                    alt="ecommerce"
+                    class="object-cover object-center w-full h-full block rounded"
+                  />
+                  <button
+                    data-remove-from-cart-button
+                    class="absolute top-0 right-0 bg-black rounded-tr text-white w-6 h-6 text-lg flex justify-center items-center"
+                  >
+                    &times;
+                  </button>
                 </div>
-                <div>$32.00</div>
-              </div>
-            </div>
-            <div class="mb-6">
-              <div class="block relative h-24 rounded overflow-hidden">
-                <img
-                  alt="ecommerce"
-                  class="object-cover object-center w-full h-full block rounded"
-                  src="https://dummyimage.com/210x130/00F/00F"
-                />
-                <button
-                  data-remove-from-cart-button
-                  class="absolute top-0 right-0 bg-black rounded-tr text-white w-6 h-6 text-lg flex justify-center items-center"
-                >
-                  &times;
-                </button>
-              </div>
-              <div class="mt-2 flex justify-between">
-                <div class="flex items-center title-font">
-                  <h2 class="text-gray-900 text-lg font-medium">Blue</h2>
+                <div class="mt-2 flex justify-between items-center">
+                  <div class="flex items-center title-font">
+                    <h2 data-cart-item-name class="text-gray-900 text-sm font-medium"></h2>
+                    <span data-cart-item-quantity class="text-gray-600 text-xs font-bold ml-1"></span>
+                  </div>
+                  <div data-cart-item-price class="text-sm"></div>
                 </div>
-                <div>$12.00</div>
               </div>
-            </div>
+            </template>
           </div>
           <div class="flex justify-between items-end border-t p-4">
             <span class="font-bold text-lg uppercase">Total</span>
-            <span class="font-bold">$44.00</span>
+            <span class="font-bold">$0.00</span>
           </div>
         </div>
       </div>
-      <button class="fixed top-0 right-0 mr-4 mt-4 w-12 bg-blue-500 p-2 rounded-full text-white hover:bg-blue-700">
+      <button
+        data-cart-button
+        class="fixed top-0 right-0 mr-4 mt-4 w-12 bg-blue-500 p-2 rounded-full text-white hover:bg-blue-700"
+      >
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path
             stroke-linecap="round"
@@ -112,10 +99,9 @@
           />
         </svg>
         <div
+          data-cart-num-items
           class="bg-red-500 rounded-full text-xs absolute w-6 h-6 flex justify-center items-center right-0 bottom-0 transform translate-x-2 translate-y-2 invisible"
-        >
-          2
-        </div>
+        ></div>
       </button>
     </section>
     <script type="module" src="main.js"></script>
