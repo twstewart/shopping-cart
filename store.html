@@ -48,7 +48,7 @@
         </div>
       </div>
     </section>
-    <section>
+    <section data-cart>
       <div data-cart-items-wrapper class="mb-4 top-0 right-0 mr-4 mt-20 fixed invisible">
         <div
           style="max-height: calc(100vh - 6rem)"
@@ -82,7 +82,7 @@
           </div>
           <div class="flex justify-between items-end border-t p-4">
             <span class="font-bold text-lg uppercase">Total</span>
-            <span class="font-bold">$0.00</span>
+            <span data-cart-items-total class="font-bold">$0.00</span>
           </div>
         </div>
       </div>
@@ -100,8 +100,10 @@
         </svg>
         <div
           data-cart-num-items
-          class="bg-red-500 rounded-full text-xs absolute w-6 h-6 flex justify-center items-center right-0 bottom-0 transform translate-x-2 translate-y-2 invisible"
-        ></div>
+          class="bg-red-500 rounded-full text-xs absolute w-6 h-6 flex justify-center items-center right-0 bottom-0 transform translate-x-2 translate-y-2"
+        >
+          0
+        </div>
       </button>
     </section>
     <script type="module" src="main.js"></script>
