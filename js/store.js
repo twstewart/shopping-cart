@@ -1,12 +1,9 @@
 import storeItems from "../data/store-data.json";
-import { currencyFormatter } from "./utils";
+import { addItemToCart } from "./cart";
+import { addGlobalEventListener, currencyFormatter } from "./utils";
 
 const storeItemTemplate = document.querySelector("#store-item-template");
-const storeWrapper = document.querySelector("#store-wrapper");
-
-export default function setupStore() {
-  storeItems.forEach(renderStoreItem);
-}
+const storeWrapper = document.querySelector("[data-store-wrapper]");
 
 function renderStoreItem(storeItem) {
   const storeItemFragment = storeItemTemplate.content.cloneNode(true);
@@ -27,4 +24,15 @@ function renderStoreItem(storeItem) {
   itemPriceEl.textContent = currencyFormatter(storeItem.priceCents / 100);
 
   storeWrapper.append(storeItemEl);
+}
+
+export default function setupStore() {
+  addGlobalEventListener("click", "[data-add-to-cart]", (e) => {
+    const storeItemEl = e.target.closest("[data-store-item]");
+    const { storeItemId: id } = storeItemEl.dataset;
+
+    addItemToCart(parseInt(id));
+  });
+
+  storeItems.forEach(renderStoreItem);
 }
