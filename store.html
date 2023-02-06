@@ -19,7 +19,7 @@
     </header>
     <section class="text-gray-700 body-font">
       <div class="container px-5 py-16 mx-auto">
-        <div id="store-wrapper" class="grid gap-x-14 gap-y-20 md:grid-cols-2 lg:grid-cols-4">
+        <div data-store-wrapper class="grid gap-x-14 gap-y-20 md:grid-cols-2 lg:grid-cols-4">
           <template id="store-item-template">
             <div data-store-item class="border-2 rounded-md overflow-hidden">
               <div class="block relative h-60">
@@ -48,9 +48,10 @@
         </div>
       </div>
     </section>
-    <section data-cart>
+    <section>
       <div data-cart-items-wrapper class="mb-4 top-0 right-0 mr-4 mt-20 fixed invisible">
         <div
+          data-cart-total
           style="max-height: calc(100vh - 6rem)"
           class="bg-white text-gray-700 body-font shadow-lg border rounded-lg flex flex-col"
         >
