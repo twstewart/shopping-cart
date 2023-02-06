@@ -1,20 +1,22 @@
 import storeData from "../data/store-data.json";
-import { addGlobalEventListener, currencyFormatter } from "./utils";
+import { addGlobalEventListener, currencyFormatter, getFromStorage, saveToStorage } from "./utils";
 
 const cartItemTemplate = document.querySelector("#cart-item-template");
-const cartWrapper = document.querySelector("[data-cart]");
 const cartBtn = document.querySelector("[data-cart-button]");
 const cartItemsWrapper = document.querySelector("[data-cart-items-wrapper]");
 const cartItemsEl = document.querySelector("[data-cart-items]");
 
 const numOfCartItemsEl = document.querySelector("[data-cart-num-items]");
 const cartItemsTotalEl = document.querySelector("[data-cart-items-total]");
+const totalItemsDisplayEl = document.querySelector("[data-cart-total]");
 
-const cart = [];
+const sessionStorageKey = "shopping-cart";
+const cart = getFromStorage(sessionStorageKey) ?? [];
 
 cartBtn.addEventListener("click", handleCartToggle);
 
 function handleCartToggle(_e) {
+  if (!cart.length) return;
   cartItemsWrapper.classList.toggle("invisible");
 }
 
@@ -28,6 +30,7 @@ export function addItemToCart(cartItemId) {
   }
 
   renderCart();
+  saveToStorage(sessionStorageKey, cart);
 }
 
 function removeItemFromCart(cartItemId) {
@@ -38,23 +41,16 @@ function removeItemFromCart(cartItemId) {
   cart.splice(existingItemIndex, 1);
 
   renderCart();
+  saveToStorage(sessionStorageKey, cart);
 }
 
 function renderCart() {
   if (!cart.length) {
-    hideCart();
+    totalItemsDisplayEl.classList.add("invisible");
   } else {
-    showCart();
-    renderCartItems();
+    totalItemsDisplayEl.classList.remove("invisible");
   }
-}
-
-function hideCart() {
-  cartWrapper.classList.add("invisible");
-}
-
-function showCart() {
-  cartWrapper.classList.remove("invisible");
+  renderCartItems();
 }
 
 function renderCartItems() {

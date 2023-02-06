@@ -12,3 +12,11 @@ export function addGlobalEventListener(type, selector, fn) {
     }
   });
 }
+
+export function saveToStorage(key, value) {
+  sessionStorage.setItem(key, JSON.stringify(value));
+}
+
+export function getFromStorage(key) {
+  return JSON.parse(sessionStorage.getItem(key));
+}
